@@ -1,0 +1,42 @@
+<odoo>
+    <!-- Form View for Shipping Supplier Invoice -->
+    <record id="view_shipping_supplier_invoice_form" model="ir.ui.view">
+        <field name="name">shipping.supplier.invoice.form</field>
+        <field name="model">shipping.invoice</field>
+        <field name="arch" type="xml">
+            <form string="Shipping Supplier Invoice">
+                <sheet>
+                    <group>
+                        <field name="supplier_name"/>
+                        <field name="invoice_number"/>
+                        <field name="amount_due"/>
+                    </group>
+                    <footer>
+                        <!-- تأكد من أن اسم الدالة متطابق مع ما هو في الكود -->
+                        <button string="Confirm" type="object" name="action_confirm" class="btn-primary"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View for Shipping Supplier Invoice -->
+    <record id="view_shipping_supplier_invoice_tree" model="ir.ui.view">
+        <field name="name">shipping.supplier.invoice.tree</field>
+        <field name="model">shipping.invoice</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="supplier_name"/>
+                <field name="invoice_number"/>
+                <field name="amount_due"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Menu Item for Shipping Supplier -->
+    <menuitem id="shipping_supplier_menu"
+              name="Shipping Supplier"
+              parent="account.menu_finance"
+              action="action_shipping_supplier_invoice"/>
+</odoo>
